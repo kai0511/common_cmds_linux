@@ -13,4 +13,6 @@
  # -nr sort numerically and inversely
  sort -t',' -k2 -nr svm_result.out | awk -F',' '$3==1{print $0}'  # print the row whose third column is 1
  
- 
+ # install python packages using pip in a specific directory
+ pip2.7 install tensorflow -t ~/.local/lib/python2.7/site-packages/
+ pip2.7 install  $TF_BINARY_URL -t ~/.local/lib/python2.7/site-packages/
