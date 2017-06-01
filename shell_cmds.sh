@@ -17,3 +17,12 @@
  # install python packages using pip in a specific directory
  pip2.7 install tensorflow -t ~/.local/lib/python2.7/site-packages/
  pip2.7 install  $TF_BINARY_URL -t ~/.local/lib/python2.7/site-packages/
+ 
+ # intergate for to do something
+ for i in svm_result.out glmnet_result.out keras_deep_learning_prediction.out; 
+ do 
+    f_name=$(echo $i|awk -F'.' '{print $1}'); 
+    sort -t',' -k2 -nr $i|\
+    awk -F',' 'BEGIN{n=0; printf "no., drug_cell.line, pred_prob\n"}$3==0{n++; print n","$1","$2}'|\
+    head -n 101 > ${f_name}_top100.csv; 
+ done
