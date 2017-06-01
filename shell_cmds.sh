@@ -12,6 +12,7 @@
  # -k sort according which column
  # -nr sort numerically and inversely
  sort -t',' -k2 -nr svm_result.out | awk -F',' '$3==1{print $0}'  # print the row whose third column is 1
+ sort -t',' -k2 -nr svm_result.out |awk -F',' 'BEGIN{n=0; printf "no., Drug_cell.line, pred_prob\n"}$3==0{n++; print n","$1","$2}'
  
  # install python packages using pip in a specific directory
  pip2.7 install tensorflow -t ~/.local/lib/python2.7/site-packages/
