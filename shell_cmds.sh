@@ -17,3 +17,6 @@
  # install python packages using pip in a specific directory
  pip2.7 install tensorflow -t ~/.local/lib/python2.7/site-packages/
  pip2.7 install  $TF_BINARY_URL -t ~/.local/lib/python2.7/site-packages/
+
+# pull files or directories from remote server to current directory
+rsync -avz zhaok@137.189.50.149:/exeh/exe3/sohc/cmap/DrugNames_standardized.csv .
