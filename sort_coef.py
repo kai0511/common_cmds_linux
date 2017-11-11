@@ -14,7 +14,7 @@ if __name__ == '__main__':
             coefs = pd.read_csv(f, header=None, usecols = [1,2,3,4,5], index_col = 0)
         else:
             continue
-        coefs.colunms = pd.Index(['coef1', 'coef2', 'coef3', 'avg_coef'])
+        coefs.columns = pd.Index(['coef1', 'coef2', 'coef3', 'avg_coef'])
         coefs['abs_avg_coef'] = coefs['avg_coef'].abs()
         coefs.sort_values(by = ['abs_avg_coef'], ascending = False)
         coefs.to_csv(rankedFileName)
