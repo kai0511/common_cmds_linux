@@ -73,7 +73,7 @@ awk -F"|" 'NR==FNR{a[$0]++} NR>FNR {if(!($0 in a)) print $0}' file_a.txt file_b.
 ```
 
 ### examples
-- count the occurrence of word in a file
+- count the occurrence of word in a file, [here](https://leetcode.com/problems/word-frequency/)
 ``` awk 
 awk '{
          for(i=1;i<=NF;i++){
