@@ -71,3 +71,43 @@ awk 'NR==FNR {a[FNR]=$0} NR>FNR { print $0,a[FNR]}' file_a.txt file_b.txt
 ``` awk
 awk -F"|" 'NR==FNR{a[$0]++} NR>FNR {if(!($0 in a)) print $0}' file_a.txt file_b.txt > file_c.log
 ```
+
+### examples
+- count the occurrence of word in a file
+``` awk 
+awk '{
+         for(i=1;i<=NF;i++){
+             a[$i]+=1
+         }
+     }END 
+     {
+         for(i in a) print i, a[i]
+     }' words.txt | sort -n -k 2 -r -t " "
+```
+
+- transpose a file, [here](https://leetcode.com/problems/transpose-file/)
+``` awk
+awk '{
+        for(i=1;i<=NF;i++){
+            if(NR == 1){  
+                arr[i]=$i;
+            }else{  
+                arr[i]=arr[i]" "$i;
+            }  
+        }
+    }
+    END{
+        for(i in arr) print arr[i]
+    }' file.txt
+```
+
+- check whether a valid tel. number, [here](https://leetcode.com/problems/valid-phone-numbers/) 
+``` awk
+awk '$0 ~ /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/ || $0 ~ /^\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}$/ {print $0}' file.txt
+```
+
+- tenth line, [here](https://leetcode.com/problems/tenth-line/)
+``` awk
+awk 'FNR==10 {print $0}' file.txt
+```
+
