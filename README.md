@@ -1,4 +1,4 @@
-# common used shell commands 
+# commonly used shell commands 
 
 ## AWK
 
