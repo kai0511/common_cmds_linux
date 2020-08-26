@@ -21,3 +21,5 @@ for dir in hypertension diabetes; do
         echo "$(dir)/"$f
     done
 done
+
+echo
