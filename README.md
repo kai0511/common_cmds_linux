@@ -1,4 +1,25 @@
-# commonly used shell commands 
+# commonly used shell tricks/commands 
+
+## Tricks
+
+- paste all texts of previous commond with !!, for example sudo with previous commonds
+```bash
+sudo !! 
+```
+- killing and yanking texts from cursor to the end
+```
+ctrl k/y
+```
+
+- killing and yanking texts from begining to the cursor
+```
+ctrl u/y
+```
+
+- paste previous command's argument (useful for running multiple commands on the same resource)
+```
+alt .
+```
 
 ## AWK
 
